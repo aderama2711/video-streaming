@@ -69,14 +69,12 @@ echo "Segment generated!"
 _location="$(pwd)"
 echo "$_location"
 
-##### NOT USED
-
 #chunking like a pro!
-#for (( i=0; i<seconds; ((i=i+2))))
-#do
-#  now=$((i/2))
-#  echo "Chunking segment$now.mp4"
-#  chunker $prefix/$video -i $_location/segment$now.mp4
-#done
+for (( i=0; i<seconds; ((i=i+2))))
+do
+  now=$((i/2))
+  echo "Chunking segment$now.mp4"
+  chunker $prefix/$video -i $_location/segment$now.mp4
+done
 
-#ndn-mongo-fileserver $prefix/$video
+ndn-mongo-fileserver $prefix/$video
